@@ -1,1 +1,1 @@
-ECHO is on.
+alert("Hello, I will be edited later!");
