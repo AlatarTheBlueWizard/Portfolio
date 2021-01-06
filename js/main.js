@@ -12,6 +12,7 @@ function generateTOC() {
         li.innerHTML = week.label;
         a.innerHTML = week.url;
         tableOfContents.appendChild(li);
+        tableOfContents.appendChild(a);
     }
 }
 
