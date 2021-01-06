@@ -12,3 +12,5 @@ function generateTOC() {
         tableOfContents.appendChild(li);
     }
 }
+
+generateTOC();
