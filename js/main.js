@@ -11,7 +11,6 @@ function generateTOC() {
         var a = document.createElement('a');
         a.setAttribute('href', week.url);
         li.innerHTML = week.label;
-        a.innerHTML = li;
         tableOfContents.append(a, li);
     }
 }
