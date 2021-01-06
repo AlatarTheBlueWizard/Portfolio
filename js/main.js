@@ -8,10 +8,13 @@ function generateTOC() {
     for (var i = 0; i < links.length; i++) {
         var week = links[i];
         var li = document.createElement('li');
+        var text = document.createTextNode(week.label);
         var a = document.createElement('a');
+
         a.setAttribute('href', week.url);
-        li.innerHTML = week.label;
-        tableOfContents.append(li, a);
+        a.appendChild(text);
+        li.appendChild(a);
+        tableOfContents.appendChild(li);
     }
 }
 
