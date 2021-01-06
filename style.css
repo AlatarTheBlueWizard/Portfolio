@@ -12,7 +12,21 @@ ol, li {
   font-family: Garamond;
 }
 
-body {
-  background-color: rgba(211,211,211,0.3);
-  background-image: url("images/meliodas.jpg");
+div {
+  width: 200px;
+  height: 200px;
+  display: block;
+  position: relative;
+}
+
+div::after {
+  content: "";
+  background: url("images/meliodas.jpg");
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
 }
