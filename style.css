@@ -5,3 +5,13 @@ header {
 h1 {
   font-family: Garamond;
 }
+
+body {
+  background-color: #cedade;
+}
+
+ol, li {
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Garamond;
+}
