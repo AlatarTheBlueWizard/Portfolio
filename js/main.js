@@ -9,10 +9,10 @@ function generateTOC() {
         var week = links[i];
         var li = document.createElement('li');
         var a = document.createElement('a');
-        li.innerHTML = week.label;
-        a.innerHTML = week.url;
+        li.textContent = week.label;
+        a.setAttribute('href', week.url);
+        li.appendChild(a);
         tableOfContents.appendChild(li);
-        tableOfContents.appendChild(a);
     }
 }
 
