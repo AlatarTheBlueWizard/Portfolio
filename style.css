@@ -6,11 +6,6 @@ h1 {
   font-family: Garamond;
 }
 
-body {
-  background-image: url("images/meliodas.jpg");
-  opacity: 0.2;
-}
-
 ol, li {
   font-weight: bold;
   font-size: 18px;
