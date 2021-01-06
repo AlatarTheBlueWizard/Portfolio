@@ -6,6 +6,11 @@ h1 {
   font-family: Garamond;
 }
 
+hr {
+  border: 0 none;
+  height: 3px;
+}
+
 ol, li {
   font-weight: bold;
   font-size: 18px;
