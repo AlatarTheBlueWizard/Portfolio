@@ -6,6 +6,9 @@ function generateTOC() {
     }]
 
     for (var i = 0; i < links.length; i++) {
-        tableOfContents.append('<li>' + links[i] + '</li>');
+        var week = links[i];
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode(week));
+        tableOfContents.appendChild(li);
     }
 }
