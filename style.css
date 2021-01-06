@@ -1,13 +1,11 @@
 header {
   background-color: #fabb84;
+  padding-bottom: 3px;
+  padding-top: 3px;
 }
 
 h1 {
   font-family: Garamond;
-}
-
-hr {
-  height: 3px;
 }
 
 ol, li {
