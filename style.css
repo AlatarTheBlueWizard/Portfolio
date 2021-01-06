@@ -11,3 +11,8 @@ ol, li {
   font-size: 18px;
   font-family: Garamond;
 }
+
+body {
+  background-color: rgba(211,211,211,0.3);
+  background-image: url("images/meliodas.jpg");
+}
