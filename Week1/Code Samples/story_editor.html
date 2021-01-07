@@ -5,8 +5,8 @@
     <script>
         function loadStory() {
             var storyName = document.getElementById("name_input").value;
-            var storyHTML = localStorage.getItem(storyName); // retrieves story name from the key-value pair
-            document.getElementById("story_editor").value = storyHTML; // value retrieved is now displayed in the editor
+            var storyHTML = localStorage.getItem(storyName); 
+            document.getElementById("story_editor").value = storyHTML; 
         }
         function saveStory() {
             var storyName = document.getElementById("name_input").value;
