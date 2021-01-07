@@ -1,17 +1,13 @@
 function generateTOC() {
-    let tableOfContents = document.getElementById("notesAndSamples");
+    let tableOfContents = document.getElementById("challenges");
     const links = [
         {
-            label: "Notes",
-            url: "Notes/notesW01.html"
+            label: "Challenge 1",
+            url: "Challenge_1W01.html"
         },
         {
-            label: "Code Samples",
-            url: "Code Samples/codeSampleW01.html"
-        },
-        {
-            label: "Challenges",
-            url: "Challenges/Challenge_indexW01.html"
+            label: "Challenge 2",
+            url: "Challenge_2W01.html"
         }
     ]
 
