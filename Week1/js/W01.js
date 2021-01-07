@@ -3,11 +3,11 @@ function generateTOC() {
     const links = [
         {
             label: "Notes",
-            url: "Week1/Notes/notesW01.html"
+            url: "Notes/notesW01.html"
         },
         {
             label: "Code Samples",
-            url: "Week1/Code Samples/codeSampleW01.html"
+            url: "Code Samples/codeSampleW01.html"
         }
     ]
 
