@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>Code Samples W01</title>
+    <style>
+      body {
+        background-color: lightgrey;
+      }
+    </style>
   </head>
   <body>
     <a href="../../index.html"><button>Click to go to home page</button></a>
@@ -12,7 +17,27 @@
       the book (Localstorage section).
     </p>
     <a href="story_editor.html"><button>Click to go to story editor exercise</button></a>
-    <h2>Local Storage Snippets and explanation</h2>
-    <h2>Mobile UX snippets and explanation</h2>
+    <h2>Local Storage Snippets and Explanation</h2>
+    <img src="../../images/display_story_snippet.PNG"/>
+    <p>The displayArea function first identifies the value of the text inputted by the user in the textarea.
+      <br/>That value is then placed within the section (story_editor) and displayed to the user.
+    </p><br/>
+    <img src="../../images/load_story_snippet.PNG"/>
+    <p>The loadStory function first identifies the value of the text inputted by the user in the input field <br/>(in this 
+      case the story title). Thanks to the localStorage.setItem property from saveStory applying <br/>a key-value pair,
+      the getItem property for localStorage in loadStory is able to find the saved/applicable <br/>title (if it matches)
+      and then displays it's story editor value in the story editor textarea using innerHTML.
+    </p><br/>
+    <img src="../../images/save_story_snippet.PNG"/>
+    <p>The saveStory function first identifies the value of the text inputted by the user in the input field.<br/>
+      The function then identifies the text value in the story editor textarea. The name and value variables<br/>
+      are then saved into a key-value pair using the setItem property of localStorage (which is then utilized in loadStory).
+    </p><br/>
+    <img src="../../images/section_snippet.PNG"/>
+    <p>The section tags are used in order to force the buttons to be on a seperate line from the input field by taking the 
+      whole <br/>width of the page, hence making the output more readable. The button onclick attributes call the js functions,
+      hence <br/>giving them the ability to perform the desired functionality once clicked.
+    </p>
+    <h2>Mobile UX Snippets and Explanation</h2>
   </body>
 </html>
