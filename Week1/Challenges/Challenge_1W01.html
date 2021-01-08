@@ -16,5 +16,52 @@
     <a href="../../index.html"><button>Click to go to home page</button></a>
     <a href="../W01.html"><button>Click to go to week 1 page</button></a>
     <a href="Challenge_indexW01.html"><button>Click to go to challenge page</button></a>
+    <h1>Challenge 1: PC Part list</h1>
+    <form>
+        <label>Enter a part you would like for your PC: </label>
+        <input id="pc-item"></input>
+        <button type='submit'>Add to part list</button>
+    </form>
+    <ol id="pc-part-list"></ol>
+    <script type="text/javascript">
+        // alert once using localstorage
+        var alerted = localStorage.getItem('alerted') || '';
+        if (alerted != 'yes') {
+            alert("This challenge is to help further my understanding of " + '\n' + 
+            "local storage. The user just needs to input a part they want for a pc" + '\n' +
+            "(gpu, cpu, etc.) then once they click the add button the parts will be " + '\n' + 
+            "generated in a list. If user refreshes or leaves, the list will still be there.");
+            localStorage.setItem('alerted', 'yes');
+        }
+
+        var pcItem = document.querySelector('#pc-item');
+        var pcPartList = document.querySelector('#pc-part-list');
+
+        document.querySelector('form').addEventListener('submit', function (event) {
+
+            // prevent the form from submitting
+            event.preventDefault();
+
+            // don't add to list if the input field is empty
+            if (pcItem.value.length < 1) {
+                return 0;
+            } 
+
+            pcPartList.innerHTML += '<li>' + pcItem.value + '</li>';
+            // reset the input field to blank
+            pcItem.value = '';
+            // generate key-value pair for pc parts
+            localStorage.setItem('pcItems', pcPartList.innerHTML);
+
+        }, false);
+
+        // Check for saved pc parts
+        var saved = localStorage.getItem('pcItems');
+
+        // update the list if there are any saved parts
+        if (saved) {
+            pcPartList.innerHTML = saved;
+        }
+    </script>
   </body>
 </html>
