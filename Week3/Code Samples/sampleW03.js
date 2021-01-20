@@ -1,17 +1,17 @@
 function generateTOC() {
-    let tableOfContents = document.getElementById("weeklyWork");
+    let tableOfContents = document.getElementById("samples");
     const links = [
         {
-            label: "Week 1",
-            url: "Week1/W01.html"
+            label: "Objects",
+            url: "Objects/object.html"
         },
         {
-            label: "Week 2",
-            url: "Week2/W02.html"
+            label: "Document Object Model",
+            url: "DOM/dom.html"
         },
         {
-            label: "Week 3",
-            url: "Week3/W03.html"
+            label: "Events",
+            url: "Events/events.html"
         }
     ]
 
