@@ -1,35 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Notes W03</title>
     <style>
-      body {
-        background-color: lightgrey;
-      }
-      button {
-        background-color: lightgreen;
-        border: 2px solid black;
-      }
+        body {
+            background-color: lightgrey;
+        }
+        
+        button {
+            background-color: lightgreen;
+            border: 2px solid black;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <a href="../../index.html"><button>Click to go to home page</button></a>
     <a href="../W03.html"><button>Click to go to week 3 page</button></a>
     <h1>Document Object Model</h1>
     <ul>
-        
+        <li>The Document Object Model is a way of representing a page of HTML as a tree of nodes</li>
+        <li>The document.getElementById() , document.getElementsByClassName() , document.getElementsByTagNames() and document.querySelector() can be used to access elements on a page</li>
+        <li>The parentNode() , previousSibling() , nextSibling() , childNodes() and children() methods can be used to navigate around the DOM tree</li>
+        <li>An element’s attributes can be accessed using the getAttribute() method, and updated using the setAttribute() method</li>
+        <li>The createElement() and createTextNode() methods can be used to create dynamic markup on the fly</li>
+        <li>Markup can be added to the page using the appendChild() and insertBefore() methods</li>
+        <li>Elements can be replaced using the replaceChild() method, and removed using the removeChild() method</li>
+        <li>The innerHTML property can be used to insert raw HTML directly into the DOM</li>
+        <li>The CSS properties of an element can be changed by accessing the style property</li>
     </ul>
     <h1>Objects</h1>
     <ul>
-        
+        <li>Objects are a collection of key-value pairs placed inside curly braces "{}"</li>
+        <li>Objects have properties that can be any JavaScript value. If it’s a function, it’s known as a method</li>
+        <li>An object’s properties and methods can be accessed using either dot notation or square bracket notation</li>
+        <li>Objects are mutable, which means their properties and methods can be changed or removed</li>
+        <li>Objects can be used as parameters to functions, which allows arguments to be entered in any order, or omitted</li>
+        <li>Nested objects can be created by placing objects inside objects</li>
+        <li>JSON is a portable data format that uses JavaScript object literals to exchange information</li>
+        <li>The Math object gives access to a number of mathematical constants</li>
+        <li>The Date object can be used to create date objects</li>
+        <li>Once you’ve created a Date object, you can use the getter methods to access information about that date</li>
+        <li>Once you’ve created a Date object, setter methods can be used to change information about that date</li>
+        <li>The Regex object can be used to create regular expressions</li>
     </ul>
     <h1>Events</h1>
     <ul>
-        
+        <li>Events occur when a user interacts with a web page</li>
+        <li>An event listener is attached to an element, then invokes a callback function when the event occurs</li>
+        <li>The event object is passed to the callback function as an argument, and contains lots of properties and methods relating to the event</li>
+        <li>There are many types of event, including mouse events, keyboard events, and touch events</li>
+        <li>You can remove an event using the removeEventListener method</li>
+        <li>The default behavior of elements can be prevented using the preventDefault() function</li>
+        <li>Event propagation is the order the events fire on each element</li>
+        <li>Event delegation is when an event listener is added to a parent element to capture events that happen to its children elements</li>
     </ul>
     <h1>"this" Object Method</h1>
     <ul>
-        
+        <li>'this' is a keyword whose value changes depending on how a function gets called</li>
+        <li>There are six ways 'this' can take on new values: global context, object construction, object method,simple function, arrow function and event listener</li>
+        <li>When 'this' is called outside of any function, in a global context, 'this' defaults to the Window object in the browser</li>
+        <li>When you create a new instance of an object with the 'new' keyword, 'this' refers to the instance</li>
+        <li>Since 'this' refers to the object, you can use methods to get the instance of an object</li>
+        <li>On browsers, 'this' is always set to Window in a simple function. The same is true even if you call a simple function in an object method</li>
+        <li>'this' in an arrow function is always the same as 'this' around it (in its immediate scope). So, if you use arrow functions within an object method, the 'this' context stays as the object, not Window.</li>
     </ul>
-  </body>
+</body>
+
 </html>
