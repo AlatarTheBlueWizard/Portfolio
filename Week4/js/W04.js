@@ -3,7 +3,7 @@ function generateTOC() {
     const links = [
         {
             label: "Notes",
-            url: "Notes/notesW04.html"
+            url: "Notes/NotesW04.html"
         },
         {
             label: "Code Samples",
