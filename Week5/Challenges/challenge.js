@@ -1,9 +1,9 @@
 /***********************************
  * Retry Challenge (#1)
  **********************************/
-class MultiplicationUnitFailure extends Error {}
+class MultiplicationUnitFailure extends Error { }
 
-function primitiveMultiply(a,b) {
+function primitiveMultiply(a, b) {
     if (Math.random() < 0.2) {
         return a * b;
     } else {
@@ -13,19 +13,19 @@ function primitiveMultiply(a,b) {
 
 // here's a test for the multiply function
 // will throw an error if working unexpectedly
-function reliableMultiply(a,b) {
-    for(;;) {
+function reliableMultiply(a, b) {
+    for (; ;) {
         try {
-            return primitiveMultiply(a,b);
-        } catch(e) {
-            if(!(e instanceof MultiplicationUnitFailure)) {
+            return primitiveMultiply(a, b);
+        } catch (e) {
+            if (!(e instanceof MultiplicationUnitFailure)) {
                 throw e;
             }
         }
     }
 }
 
-console.log(reliableMultiply(8,8));
+console.log('Multiplication result: ' + reliableMultiply(8, 8));
 
 /***********************************
  * The locked Box Challenge (#2)
@@ -36,14 +36,14 @@ const box = {
     lock() { this.locked = true; },
     _content: [],
     get content() {
-        if(this.locked) throw new Error("Locked!");
+        if (this.locked) throw new Error("Locked!");
         return this._content;
     }
 };
 
 function withBoxUnlocked(body) {
     let locked = box.locked;
-    if(!locked) {
+    if (!locked) {
         return body();
     }
 
@@ -55,16 +55,16 @@ function withBoxUnlocked(body) {
     }
 }
 
-withBoxUnlocked(function() {
-    box.content.push("Lots of money!");
+withBoxUnlocked(function () {
+    box.content.push("gold piece");
 });
 
 try {
-    withBoxUnlocked(function() {
-        throw new Error("Enemies arrived.. abort!");
+    withBoxUnlocked(function () {
+        throw new Error("Pirates on the horizon! Abort!");
     });
-} catch(e) {
+} catch (e) {
     console.log("Error raised:", e);
 }
 
-console.log(box.locked);
+console.log('Box is locked: ' + box.locked);
