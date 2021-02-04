@@ -1,53 +1,4 @@
 /***********************************
- * Exceptions
- **********************************/
-/*An exception is an error that produces a 
-return value that can then be used by the program 
-to deal with the error*/
-
-/*Trying to call this method (which doesn't exist)
-will produce a reference error that will raise an
-exception*/
-thisMethodDoesntExist();
-
-/***********************************
- * Stack Traces
- **********************************/
-/*A stack trace is a sequence of functions or method 
-calls that lead to the point where the error occurred.
-A stack trace will work backwards from the point at which 
-the error occurred to identify the original function or 
-method that started the sequence*/
-
-function third() { peskyMethod(); } // invokes peskyMethod which doesnt exist and produces error
-function second() { third(); } // invokes function 'third'
-function first() { second(); } // invokes function 'second'
-first(); // work backwards and see this error was caused by invoking first();
-
-/***********************************
- * Using Alerts
- **********************************/
-/*Because alert() stops a program from running until OK is clicked, it 
-allows us to effectively put breakpoints in the code that let us check 
-the value of variables at that point to see if they’re what we expect 
-them to be.*/
-
-// check to see if a person's age is appropriate
-function amIOldEnough(age) {
-    if (age < 12) {
-        alert(age);
-        return 'No, sorry.';
-    } else if (age < 18) {
-        return 'Only if you are accompanied by an adult.';
-    }
-    else {
-        return 'You may enter.';
-    }
-}
-
-//amIOldEnough(21); call in the console or paste to view the result!
-
-/***********************************
  * Console Debugging
  **********************************/
 /*we could add some console.log() statements in the amIOldEnough()
@@ -67,7 +18,7 @@ function amIOldEnough(age) {
     }
 }
 
-//amIOldEnough(21); call in the console or paste to view the result!
+console.log(amIOldEnough(21)); 
 
 /***********************************
  * Error Objects
@@ -89,7 +40,7 @@ allow for any problems in your code to be highlighted and dealt with, rather
 than lurk quietly in the background.*/
 
 // this will cause the program to hault:
-throw new Error('Something has gone badly wrong!');
+//throw new Error('Something has gone badly wrong!');
 
 //This function will throw an error if the user tries to use a negative argument:
 function squareRoot(number) {
@@ -100,7 +51,7 @@ function squareRoot(number) {
     return Math.sqrt(number);
 }
 
-//squareRoot(-10); call in the console or paste to view the result!
+//squareRoot(-10); call in the console to view the result!
 
 /***********************************
  * Try, Catch and Finally
@@ -120,7 +71,7 @@ function imaginarySquareRoot(number) {
     }
 }
 
-//imaginarySquareRoot(-49); call in the console or paste to view the result!
+console.log(imaginarySquareRoot(-49)); 
 
 /***********************************
  * Tests
@@ -133,4 +84,30 @@ function isSquareRoots4() {
 }
 
 //compare the result of squareRoot(4) with 2, should return true
-//isSquareRoots4(); call in the console or paste to view the result!
+console.log(isSquareRoots4()); 
+
+/***********************************
+ * Stack Traces
+ **********************************/
+/*A stack trace is a sequence of functions or method 
+calls that lead to the point where the error occurred.
+A stack trace will work backwards from the point at which 
+the error occurred to identify the original function or 
+method that started the sequence*/
+
+function third() { peskyMethod(); } // invokes peskyMethod which doesnt exist and produces error
+function second() { third(); } // invokes function 'third'
+function first() { second(); } // invokes function 'second'
+first(); // work backwards and see this error was caused by invoking first();
+
+/***********************************
+ * Exceptions
+ **********************************/
+/*An exception is an error that produces a 
+return value that can then be used by the program 
+to deal with the error*/
+
+/*Trying to call this method (which doesn't exist)
+will produce a reference error that will raise an
+exception*/
+thisMethodDoesntExist();
