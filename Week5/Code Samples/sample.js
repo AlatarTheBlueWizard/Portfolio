@@ -25,7 +25,7 @@ function first() { second(); } // invokes function 'second'
 first(); // work backwards and see this error was caused by invoking first();
 
 /***********************************
- * The Trusty Alert
+ * Using Alerts
  **********************************/
 /*Because alert() stops a program from running until OK is clicked, it 
 allows us to effectively put breakpoints in the code that let us check 
@@ -105,3 +105,32 @@ function squareRoot(number) {
 /***********************************
  * Try, Catch and Finally
  **********************************/
+/* A try block can be used if there is a suspected piece of code that will result
+in an exception. The code in the block will run as normal, but if an exception
+occurs it will pass the error object that is thrown onto a catch block.*/
+function imaginarySquareRoot(number) {
+    'use strict';
+    let answer;
+    try {
+        answer = String(squareRoot(number));
+    } catch(error) {
+        answer = squareRoot(-number)+'i'; // will only run if an exception is thrown in the try block
+    } finally {
+        return `+ or - ${answer}`; // will always execute regardless of whether an exception is thrown or not
+    }
+}
+
+//imaginarySquareRoot(-49); call in the console or paste to view the result!
+
+/***********************************
+ * Tests
+ **********************************/
+//A test can simply be a function that tests a piece of code runs as it should
+
+//test the squareRoot() function
+function isSquareRoots4() {
+    return squareRoot(4) === 2;
+}
+
+//compare the result of squareRoot(4) with 2, should return true
+//isSquareRoots4(); call in the console or paste to view the result!
