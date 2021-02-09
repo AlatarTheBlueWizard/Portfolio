@@ -62,7 +62,7 @@ function addToList(todoDiv) {
 // Event handlers
 function deleteTodo(e) {
     const btn = e.currentTarget;
-    ls.deleteTodo(btn.getAtttibute('data-id'));
+    ls.deleteTodo(btn.getAttribute('data-id'));
     document.querySelector('#todos').innerHTML = '';
     loadTodos();
 }
