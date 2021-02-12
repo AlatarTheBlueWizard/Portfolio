@@ -33,7 +33,6 @@ function createTodoElement(todo) {
     const completeBtn = document.createElement('button');
     completeBtn.classList.add('complete-btn');
     completeBtn.innerHTML = "&#10003";
-    //completeBtn.onclick = toggleComplete;
 
     // todo content
     const todoContent = document.createElement('div');
