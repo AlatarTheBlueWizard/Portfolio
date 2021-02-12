@@ -1,12 +1,12 @@
 function activeFilter(todos) {
     return todos.filter(todo => {
-        return !todo.completed;
+        return todo.completed == false;
     })
 }
 
 function completedFilter(todos) {
     return todos.filter(todo => {
-        return todo.completed;
+        return todo.completed == true;
     })
 }
 

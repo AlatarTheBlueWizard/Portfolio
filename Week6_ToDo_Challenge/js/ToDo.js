@@ -31,6 +31,7 @@ function createTodoElement(todo) {
 
     // complete button
     const completeBtn = document.createElement('button');
+    completeBtn.setAttribute('data-id', todo.id);
     completeBtn.classList.add('complete-btn');
     completeBtn.innerHTML = "&#10003"
     completeBtn.onclick = toggleComplete;
