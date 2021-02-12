@@ -14,7 +14,7 @@ function deleteTodo(id) {
 
 function toggleComplete(id) {
     const toDoList = getTodoList();
-    
+
     const updatedTodos = toDoList.find(todo => todo.id == id)
     localStorage.setItem('toDoList', JSON.stringify(updatedTodos));
 }
