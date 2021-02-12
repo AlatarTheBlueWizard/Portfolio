@@ -31,7 +31,6 @@ function createTodoElement(todo) {
 
     // complete button
     const completeBtn = document.createElement('button');
-    completeBtn.setAttribute('data-completed', todo.completed);
     completeBtn.classList.add('complete-btn');
     completeBtn.innerHTML = "&#10003";
     completeBtn.onclick = toggleComplete;
@@ -73,12 +72,6 @@ function deleteTodo(e) {
     ls.deleteTodo(btn.getAttribute('data-id'));
     document.querySelector('#todos').innerHTML = '';
     loadTodos();
-}
-
-function toggleComplete(e) {
-    const btn = e.currentTarget;
-    ls.toggleComplete(btn.getAttribute('data-completed'));
-    e.currentTarget.completed = true;
 }
 
 function applyFilter(e) {
