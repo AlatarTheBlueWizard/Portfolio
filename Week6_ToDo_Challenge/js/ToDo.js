@@ -55,7 +55,6 @@ function createTodoElement(todo) {
 }
 
 function addToList(todoDiv) {
-    // Add to the document
     document.querySelector('#todos').appendChild(todoDiv);
 }
 
