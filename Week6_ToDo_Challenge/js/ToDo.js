@@ -32,6 +32,8 @@ function createTodoElement(todo) {
     // complete button
     const completeBtn = document.createElement('button');
     completeBtn.classList.add('complete-btn');
+    completeBtn.innerHTML = "&#10003"
+    completeBtn.onclick = toggleComplete;
 
     // todo content
     const todoContent = document.createElement('div');
@@ -74,7 +76,7 @@ function deleteTodo(e) {
 }
 
 function toggleComplete(e) {
-
+    
 }
 
 function applyFilter(e) {
@@ -90,6 +92,8 @@ function applyFilter(e) {
         filteredTodos = utils.activeFilter(allTodos)
     } else if (e.currentTarget.id == 'allFilter') {
         filteredTodos = allTodos
+    } else if (e.currentTarget.id == 'completedFilter') {
+        filteredTodos = utils.completedFilter(allTodos)
     }
 
     // draw the list
