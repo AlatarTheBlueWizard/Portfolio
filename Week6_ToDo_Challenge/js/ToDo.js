@@ -33,6 +33,7 @@ function createTodoElement(todo) {
     const completeBtn = document.createElement('button');
     completeBtn.classList.add('complete-btn');
     completeBtn.innerHTML = "&#10003";
+    completeBtn.onclick = toggleComplete;
 
     // todo content
     const todoContent = document.createElement('div');
@@ -71,6 +72,10 @@ function deleteTodo(e) {
     ls.deleteTodo(btn.getAttribute('data-id'));
     document.querySelector('#todos').innerHTML = '';
     loadTodos();
+}
+
+function toggleComplete(e) {
+
 }
 
 function applyFilter(e) {

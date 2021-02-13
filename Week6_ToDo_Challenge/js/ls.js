@@ -12,12 +12,19 @@ function deleteTodo(id) {
     localStorage.setItem('toDoList', JSON.stringify(updatedTodos));
 }
 
+function toggleComplete(id) {
+
+}
+
 function getTodoList() {
     const todoListString = localStorage.getItem('toDoList');
     let todoList = [];
 
     if(todoListString) {
         todoList = JSON.parse(todoListString);
+    } else {
+        // rids of the JSON undefined error if it occurs
+        localStorage.clear();
     }
 
     return todoList;
@@ -26,5 +33,6 @@ function getTodoList() {
 export default {
     saveTodo,
     deleteTodo,
-    getTodoList
+    getTodoList,
+    toggleComplete
 }
