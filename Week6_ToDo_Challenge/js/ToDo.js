@@ -2,6 +2,7 @@ import utils from './utils.js';
 import ls from './ls.js';
 
 // load the list
+localStorage.clear();
 loadTodos();
 
 // Add event listener
@@ -31,6 +32,7 @@ function createTodoElement(todo) {
 
     // complete button
     const completeBtn = document.createElement('button');
+    completeBtn.setAttribute('data-id', todo.id)
     completeBtn.classList.add('complete-btn');
     completeBtn.innerHTML = "&#10003";
     completeBtn.onclick = toggleComplete;
@@ -75,7 +77,8 @@ function deleteTodo(e) {
 }
 
 function toggleComplete(e) {
-
+    const btn = e.currentTarget;
+    ls.toggleComplete(btn.getAttribute('data-id'));
 }
 
 function applyFilter(e) {
