@@ -13,16 +13,19 @@ function deleteTodo(id) {
 }
 
 function toggleComplete(id) {
+    const toDoList = getTodoList();
 
+    const compTodos = toDoList.find(todo => todo.id == id)
+    localStorage.setItem('toDoList', JSON.stringify(compTodos));
 }
 
 function getTodoList() {
     const todoListString = localStorage.getItem('toDoList');
     let todoList = [];
-
+    
     if(todoListString) {
         todoList = JSON.parse(todoListString);
-    } else if(todoListString == undefined){
+    } else if(todoList == undefined || todoList == null){
         // rids of the JSON undefined error if it occurs
         localStorage.clear();
         todoList = JSON.parse(todoListString);
