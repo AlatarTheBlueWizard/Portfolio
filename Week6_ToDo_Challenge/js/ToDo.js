@@ -26,34 +26,37 @@ function createTodo() {
 }
 
 function createTodoElement(todo) {
-    // Todo div
-    const todoDiv = document.createElement('div');
-    todoDiv.classList.add('todo');
+    if(todo.content == '') {
+        alert('Please enter a task');
+    } else {
+        // Todo div
+        const todoDiv = document.createElement('div');
+        todoDiv.classList.add('todo');
 
-    // complete button
-    const completeBtn = document.createElement('button');
-    completeBtn.setAttribute('data-id', todo.id)
-    completeBtn.classList.add('complete-btn');
-    completeBtn.innerHTML = "&#10003";
-    completeBtn.onclick = toggleComplete;
+        // complete button
+        const completeBtn = document.createElement('button');
+        completeBtn.classList.add('complete-btn');
+        completeBtn.innerHTML = '&#10003';
+        //completeBtn.onclick 
 
-    // todo content
-    const todoContent = document.createElement('div');
-    todoContent.innerText = todo.content;
-    todoContent.classList.add('todo-content');
+        // todo content
+        const todoContent = document.createElement('div');
+        todoContent.innerText = todo.content;
+        todoContent.classList.add('todo-content');
 
-    // delete btn
-    const deleteBtn = document.createElement('button');
-    deleteBtn.setAttribute('data-id', todo.id);
-    deleteBtn.classList.add('todo-delete-btn');
-    deleteBtn.innerText = "X";
-    deleteBtn.onclick = deleteTodo;
+        // delete btn
+        const deleteBtn = document.createElement('button');
+        deleteBtn.setAttribute('data-id', todo.id);
+        deleteBtn.classList.add('todo-delete-btn');
+        deleteBtn.innerText = "X";
+        deleteBtn.onclick = deleteTodo;
 
-    todoDiv.appendChild(completeBtn);
-    todoDiv.appendChild(todoContent);
-    todoDiv.appendChild(deleteBtn);
+        todoDiv.appendChild(completeBtn);
+        todoDiv.appendChild(todoContent);
+        todoDiv.appendChild(deleteBtn);
 
-    return todoDiv;
+        return todoDiv;
+    }
 }
 
 function addToList(todoDiv) {
@@ -74,11 +77,6 @@ function deleteTodo(e) {
     ls.deleteTodo(btn.getAttribute('data-id'));
     document.querySelector('#todos').innerHTML = '';
     loadTodos();
-}
-
-function toggleComplete(e) {
-    const btn = e.currentTarget;
-    ls.toggleComplete(btn.getAttribute('data-id'));
 }
 
 function applyFilter(e) {

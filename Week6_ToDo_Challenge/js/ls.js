@@ -12,13 +12,6 @@ function deleteTodo(id) {
     localStorage.setItem('toDoList', JSON.stringify(updatedTodos));
 }
 
-function toggleComplete(id) {
-    const toDoList = getTodoList();
-
-    const compTodos = toDoList.find(todo => todo.id == id)
-    localStorage.setItem('toDoList', JSON.stringify(compTodos));
-}
-
 function getTodoList() {
     const todoListString = localStorage.getItem('toDoList');
     let todoList = [];
@@ -37,6 +30,5 @@ function getTodoList() {
 export default {
     saveTodo,
     deleteTodo,
-    getTodoList,
-    toggleComplete
+    getTodoList
 }
