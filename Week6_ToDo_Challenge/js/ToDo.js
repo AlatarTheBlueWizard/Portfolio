@@ -2,7 +2,7 @@ import utils from './utils.js';
 import ls from './ls.js';
 
 // load the list
-localStorage.clear();
+//localStorage.clear();
 loadTodos();
 
 // Add event listener
@@ -35,14 +35,19 @@ function createTodoElement(todo) {
 
         // complete button
         const completeBtn = document.createElement('button');
+        completeBtn.setAttribute('data-id', todo.id);
         completeBtn.classList.add('complete-btn');
         completeBtn.innerHTML = '&#10003';
-        //completeBtn.onclick 
+        completeBtn.onclick = toggled;
 
         // todo content
         const todoContent = document.createElement('div');
         todoContent.innerText = todo.content;
         todoContent.classList.add('todo-content');
+
+        if(todo.completed == true) {
+            todoContent.style.backgroundColor = "#00FF00";
+        }
 
         // delete btn
         const deleteBtn = document.createElement('button');
@@ -75,6 +80,13 @@ function loadTodos() {
 function deleteTodo(e) {
     const btn = e.currentTarget;
     ls.deleteTodo(btn.getAttribute('data-id'));
+    document.querySelector('#todos').innerHTML = '';
+    loadTodos();
+}
+
+function toggled(e) {
+    const btn = e.currentTarget;
+    ls.toggled(btn.getAttribute('data-id'));
     document.querySelector('#todos').innerHTML = '';
     loadTodos();
 }
