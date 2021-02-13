@@ -22,9 +22,10 @@ function getTodoList() {
 
     if(todoListString) {
         todoList = JSON.parse(todoListString);
-    } else {
+    } else if(todoListString == undefined){
         // rids of the JSON undefined error if it occurs
         localStorage.clear();
+        todoList = JSON.parse(todoListString);
     }
 
     return todoList;
