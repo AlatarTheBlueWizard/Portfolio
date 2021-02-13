@@ -46,7 +46,8 @@ function createTodoElement(todo) {
         todoContent.classList.add('todo-content');
 
         if(todo.completed == true) {
-            todoContent.style.backgroundColor = "#00FF00";
+            todoContent.style.color = "#FF0000";
+            todoContent.style.setProperty('text-decoration', 'line-through');
         }
 
         // delete btn
