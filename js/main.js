@@ -24,6 +24,10 @@ function generateTOC() {
         {
             label: "Week 6 (ToDo Challenge)",
             url: "Week6_ToDo_Challenge/index.html"
+        },
+        {
+            label: "Week 7",
+            url: "Week7/W07.html"
         }
     ]
 
