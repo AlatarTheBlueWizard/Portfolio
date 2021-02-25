@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Transforms/Transitions Ex's</title>
+    <style>
+        body {
+            background-color: lightgrey;
+        }
+
+        button {
+            background-color: lightgreen;
+            border: 2px solid black;
+        }
+
+        /********************************
+        Green square transition example
+        ********************************/
+        #greenSquare {
+            width: 100px;
+            height: 100px;
+            background: green;
+            transition: width 2s;
+        }
+
+        #greenSquare:hover {
+            width: 300px;
+        }
+
+        /********************************
+        Red square transition example
+        ********************************/
+        #redSquare {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: width 2s, height 4s;
+        }
+
+        #redSquare:hover {
+            width: 300px;
+            height: 300px;
+        }
+
+        /***********************************************
+        Blue square transition+Transformation example
+        ***********************************************/
+        #blueSquare {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            transition: width 2s, height 2s, transform 2s;
+        }
+
+        #blueSquare:hover {
+            width: 150px;
+            height: 150px;
+            transform: rotate(180deg);
+        }
+
+        /********************************
+        Orange rect translate() example
+        ********************************/
+        #orangeRect {
+            width: 300px;
+            height: 100px;
+            background: orange;
+            transition: transform 2s;
+        }
+
+        #orangeRect:hover {
+            transform: translate(50px, 100px);
+        }
+
+        /********************************
+        Yellow rect skew() example
+        ********************************/
+        #yellowRect {
+            width: 300px;
+            height: 100px;
+            background: yellow;
+            transition: transform 2s;
+        }
+
+        #yellowRect:Hover {
+            transform: skew(20deg, 10deg)
+        }
+
+        /********************************
+        Black rect matrix() example
+        ********************************/
+        #blackRect {
+            width: 300px;
+            height: 100px;
+            background: black;
+            transition: transform 2s;
+        }
+
+        #blackRect:Hover {
+            transform: matrix(1, 0, 0.5, 1, 150, 0);
+        }
+
+        /********************************
+        Keyframe example
+        ********************************/
+        #changeColSquare {
+            width: 25px;
+            height: 25px;
+            background: red;
+            position: relative;
+            animation: mymove 5s infinite;
+        }
+
+        @keyframes mymove {
+            0% {
+                top: 0px;
+                left: 0px;
+                background: red;
+            }
+
+            25% {
+                top: 0px;
+                left: 100px;
+                background: blue;
+            }
+
+            50% {
+                top: 100px;
+                left: 100px;
+                background: yellow;
+            }
+
+            75% {
+                top: 100px;
+                left: 0px;
+                background: green;
+            }
+
+            100% {
+                top: 0px;
+                left: 0px;
+                background: red;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="codeSampleW08.html"><button>Click to go to W08 Sample Page</button></a>
+    <a href="../W08.html"><button>Click to go to week 8 page</button></a>
+
+    <h3>Keyframes Example</h3>
+    <div id="changeColSquare"></div>
+    <br/><br/><br/><br/><br/>
+    <h3>Transition Examples</h3>
+    <p>Hover over the green square to see the transition in action</p>
+    <div id="greenSquare"></div>
+
+    <p>Hover over the red square to see the transition with more than one property in action</p>
+    <div id="redSquare"></div>
+
+    <p>Hover over the blue square to see transition and transform in action</p>
+    <div id="blueSquare"></div>
+
+    <h3>Transform Examples</h3>
+    <p>Hover over the orange rectangle to see the translate() method in action</p>
+    <div id="orangeRect"></div>
+
+    <p>Hover over the yellow rectangle to see the skew() method in action</p>
+    <div id="yellowRect"></div>
+
+    <p>Hover over the black rectangle to see the matrix() method in action</p>
+    <div id="blackRect"></div>
+</body>
+
+</html>
