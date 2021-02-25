@@ -12,12 +12,79 @@
       background-color: lightgreen;
       border: 2px solid black;
     }
+
+    #div1,
+    #div2 {
+      float: left;
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid black;
+    }
   </style>
 </head>
 
 <body>
   <a href="codeSampleW08.html"><button>Click to go to W08 Sample Page</button></a>
   <a href="../W08.html"><button>Click to go to week 8 page</button></a>
+
+  <h3>Canvas Example</h3>
+  <canvas id="myCanvas" width="500" height="215" style="border:1px solid #d3d3d3;">
+  Your browser does not support the HTML canvas tag.</canvas>
+
+  <h3>SVG Example</h3>
+  <svg height="130" width="500">
+    <defs>
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+    <text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">SVG</text>
+    Sorry, your browser does not support inline SVG.
+  </svg>
+
+  <h3>Drag and Drop Example</h3>
+  <p>Drag and drop the stickman back and forth between the two boxes.</p>
+
+  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img id="drag1" src="1926276-200.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
+  </div>
+  <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+  <script>
+    // canvas circle
+    function drawCircle(canvas) {
+      var context = canvas.getContext("2d");
+      context.beginPath();
+      context.arc(100, 100, 50, 0, Math.PI * 2, true);
+      context.closePath();
+      context.strokeStyle = "black";
+      context.fillStyle = "green";
+      context.lineWidth = 3;
+      context.fill();
+      context.stroke();
+    }
+
+    drawCircle(myCanvas);
+
+    // Drag and drop
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+    }
+  </script>
 </body>
 
 </html>
