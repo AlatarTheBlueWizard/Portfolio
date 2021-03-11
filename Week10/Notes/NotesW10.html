@@ -18,14 +18,46 @@
 <body>
     <a href="../../index.html"><button>Click to go to home page</button></a>
     <a href="../W10.html"><button>Click to go to week 10 page</button></a>
-    <h1></h1>
+    <h1>MDN: Validating Forms</h1>
     <ul>
-        <li></li>
+        <li>Before submitting data to the server, it is important to ensure all required form controls are filled out, in the correct format.</li>
+        <li>Client-side validation is an initial check and an important feature of good user experience; by catching invalid data on the client-side, the user can fix it straight away.</li>
+        <li>Client-side validation should not be considered an exhaustive security measure!</li>
+        <li>1) We want to get the right data, in the right format.</li>
+        <li>2) We want to protect our users' data.</li>
+        <li>3) We want to protect ourselves.</li>
+        <li>Built-in form validation uses HTML5 form validation features</li>
+        <li>JavaScript validation is coded using JavaScript. This validation is completely customizable, but you need to create it all (or use a library).</li>
+        <li>One of the most significant features of HTML5 form controls is the ability to validate most user data without relying on JavaScript.</li>
+        <li>There are several errors that will prevent the form from being submitted, including a badInput, patternMismatch, rangeOverflow or rangeUnderflow, stepMismatch, tooLong or tooShort, typeMismatch, valueMissing, or a customError.</li>
+        <li>The simplest HTML5 validation feature is the required attribute</li>
+        <li>For good user experience, indicate to the user when form fields are required. It isn't only good user experience, it is required by WCAG accessibility guidelines</li>
+        <li>Only require users to input data you actually need: For example, why do you really need to know someone's gender or title?</li>
+        <li>Another useful validation feature is the pattern attribute, which expects a Regular Expression as its value</li>
+        <li>Some input element types don't need a pattern attribute to be validated against a regular expression.</li>
+        <li>Browsers often don't let the user type a longer value than expected into text fields</li>
+        <li>A better user experience than just using maxlength is to also provide character count feedback in an accessible manner and let them edit their content down to size.</li>
+        <li>You must use JavaScript if you want to take control over the look and feel of native error messages or to deal with legacy browsers that do not support HTML's built-in form validation</li>
+        <li>Most browsers support the Constraint Validation API, which consists of a set of methods and properties available on the following form element DOM interfaces</li>
+        <li>A key point here is that setting the novalidate attribute on the form is what stops the form from showing its own error message bubbles, and allows us to instead display the custom error messages in the DOM in some manner of our own choosing.</li>
+        <li>In some cases, such as legacy browser support or custom controls, you won't be able to or won't want to use the Constraint Validation API</li>
     </ul>
 
-    <h1></h1>
+    <h1>MDN: Using Fetch</h1>
     <ul>
-        <li></li>
+        <li>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses.</li>
+        <li>It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network.</li>
+        <li>Fetch provides a better alternative that can be easily used by other technologies such as Service Workers</li>
+        <li>Fetch also provides a single logical place to define other HTTP-related concepts such as CORS and extensions to HTTP.</li>
+        <li>Fetch requests are controlled by the connect-src directive of Content Security Policy rather than the directive of the resources it's retrieving.</li>
+        <li>The fetch() method can optionally accept a second parameter, an init object that allows you to control a number of different settings:</li>
+        <li>Access-Control-Allow-Origin is prohibited from using a wildcard for requests with credentials: 'include'. In such cases, the exact origin must be provided; even if you are using a CORS unblocker extension, the requests will still fail.</li>
+        <li>A fetch() promise will reject with a TypeError when a network error is encountered or CORS is misconfigured on the server-side</li>
+        <li>Instead of passing a path to the resource you want to request into the fetch() call, you can create a request object using the Request() constructor, and pass that in as a fetch() method argument</li>
+        <li>The Headers interface allows you to create your own headers object via the Headers() constructor</li>
+        <li>All of the Headers methods throw a TypeError if a header name is used that is not a valid HTTP Header name</li>
+        <li>You may not append or set the Content-Length header on a guarded headers object for a response.</li>
+        <li>The static method error() returns an error response. Similarly, redirect() returns a response resulting in a redirect to a specified URL.</li>
     </ul>
 </body>
 
