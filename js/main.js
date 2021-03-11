@@ -36,6 +36,10 @@ function generateTOC() {
         {
             label: "Week 9",
             url: "Week9/W09.html"
+        },
+        {
+            label: "Week 10",
+            url: "Week10/W10.html"
         }
     ]
 
