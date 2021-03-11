@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS Validation Sample</title>
+    <style>
+        body {
+            font: 1em sans-serif;
+            width: 200px;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        p * {
+            display: block;
+        }
+
+        input[type="email"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            border: 1px solid #333;
+            margin: 0;
+            font-family: inherit;
+            font-size: 90%;
+            box-sizing: border-box;
+        }
+
+        /* invalid field styling */
+        input:invalid {
+            border-color: #900;
+            background-color: #FDD;
+        }
+
+        input:focus:invalid {
+            outline: none;
+        }
+
+        /* error message styling */
+        .error {
+            width: 100%;
+            padding: 0;
+            font-size: 80%;
+            color: white;
+            background-color: #900;
+            border-radius: 0 0 5px 5px;
+            box-sizing: border-box;
+        }
+
+        .error.active {
+            padding: 0.3em;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../codeSampleW10.html"><button>Click to go to Samples page</button></a>
+    <!-- novalidate allows script to take over validation-->
+    <form novalidate>
+        <p>
+            <label for="mail">
+                <span>Please enter an email address:</span>
+                <input type="email" id="mail" name="mail" required minlength="8">
+                <span class="error" aria-live="polite"></span>
+            </label>
+        </p>
+        <button>Submit</button>
+    </form>
+    <script>
+        // get the form and the email box, as well as the span element into which we
+        // will place the error message
+        const form = document.getElementsByTagName('form')[0];
+        const email = document.getElementById('mail');
+        const emailError = document.querySelector('#mail + span.error');
+
+        email.addEventListener('input', function (event) {
+            // each time the user types something, check
+            // if the form fields are valid
+            if (email.validity.valid) {
+                // In case there is an error message visible,
+                // if the field is valid remove the error message
+                emailError.textContent = ''; // reset message content
+                emailError.className = 'error'; // reset visual state of the message
+            } else {
+                // If there is still an error, show the correct error
+                showError();
+            }
+        });
+
+        form.addEventListener('submit', function (event) {
+            // if the email is valid, let the form submit
+            if (!email.validity.valid) {
+                // If not valid, display error message
+                showError();
+                // prevent form from being sent 
+                event.preventDefault();
+            }
+        });
+
+        function showError() {
+            if (email.validity.valueMissing) {
+                // if the field is empty
+                // display the following error
+                emailError.textContent = "You need to enter an e-mail address.";
+            } else if (email.validity.typeMismatch) {
+                // If the field doesnt contain an email address
+                // display the following error
+                emailError.textContent = "Entered value needs to be an e-mail address.";
+            } else if (email.validity.tooShort) {
+                // If the data is too short
+                // display the following error
+                emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
+            }
+
+            // Set styling
+            emailError.className = 'error active';
+        }
+    </script>
+</body>
+
+</html>
