@@ -40,6 +40,10 @@ function generateTOC() {
         {
             label: "Week 10",
             url: "Week10/W10.html"
+        },
+        {
+            label: "Block 2 Challenge: Pokedex",
+            url: "ChallengeBlockTwo/index.html"
         }
     ]
 
