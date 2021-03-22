@@ -1,13 +1,18 @@
 const poke = document.getElementById('pokedex');
+const modal = document.getElementById('myModal');
+const span = document.getElementsByClassName('close')[0];
+
+// event listener to display stats
+document.getElementById('pokedex').addEventListener("click", displayStats);
 
 // fetch pokemon data from API
 const getPokemon = () => {
     const promises = [];
 
-    for(let i = 1; i <= 100; i++) {
+    for (let i = 1; i <= 100; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url)
-        .then(res => res.json()));
+            .then(res => res.json()));
     }
 
     Promise.all(promises).then(result => {
@@ -29,6 +34,21 @@ const display = (pokemon) => {
     </li>`).join("");
 
     poke.innerHTML = pokeString;
+}
+
+function displayStats() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 
 getPokemon();
