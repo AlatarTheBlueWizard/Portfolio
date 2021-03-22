@@ -62,6 +62,7 @@ const getPokemonStats = () => {
 
 function displayStats() {
    // TODO display stats in modal
+   modal.style.display = "block";
 }
 
 // event listener to display stats
