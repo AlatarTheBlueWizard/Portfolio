@@ -1,6 +1,7 @@
 const poke = document.getElementById('pokedex');
-const modal = document.getElementById('myModal');
-const span = document.getElementsByClassName('close')[0];
+
+// label styling
+document.getElementById('pTypes').style.color = "yellow";
 
 // fetch pokemon data from API
 const getPokemon = () => {
@@ -22,27 +23,6 @@ const getPokemon = () => {
     })
 }
 
-/*const getPokemon = () => {
-    for(let i = 1; i <= 50; i++) {
-      const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-      fetch(url)
-      .then(res => res.json())
-      .then(data => console.log(data))
-    }
-  }
-  
-  getPokemon(); */
-
-const display = (pokemon) => {
-    const pokeString = pokemon.map(eachPokemon => `
-    <li>
-        <img src="${eachPokemon.image}" />
-        <h3>${eachPokemon.id}. ${eachPokemon.name}</h3>
-    </li>`).join("");
-
-    poke.innerHTML = pokeString;
-}
-
 const getPokemonStats = () => {
     const promises = [];
 
@@ -60,23 +40,39 @@ const getPokemonStats = () => {
     })
 }
 
-function displayStats() {
-   // TODO display stats in modal
-   modal.style.display = "block";
+const display = (pokemon) => {
+    // TODO add stats, types, and abilities
+    const pokeString = pokemon.map(eachPokemon => `
+    <li id="pId">
+        <img src="${eachPokemon.image}" />
+        <h3>${eachPokemon.id}. ${eachPokemon.name}</h3>
+    </li>
+    `).join("");
+    poke.innerHTML = pokeString;
 }
 
-// event listener to display stats
-document.getElementById('pokedex').addEventListener("click", displayStats);
-
-span.onclick = function() {
-    modal.style.display = "none";
+const displayStats = (pokemon) => {
+    modal.style.display = "block";
+    const pokeString = pokemon.map(eachPokemon => `
+    <li>
+        <h3>test</h3>
+        <h3>Abilities: ${eachPokemon.abilities}</h3>
+    </li>`).join("");
+    poke.innerHTML = pokeString;
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+// types helper
+function createTypes(types, ul) {
+    types.forEach(function (type) {
+        let typeLi = document.createElement('li');
+        typeLi.innerText = type['type']['name'];
+        ul.append(typeLi);
+    })
+}
+
+// stats helper
+function stats() {
+    // TODO add stats logic
 }
 
 getPokemon();
