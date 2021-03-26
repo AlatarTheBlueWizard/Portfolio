@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Block 2 Challenge: Pokedex</title>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header-container" class="ui inverted segment">
+        <div class="ui inverted secondary menu">
+           <h1 id="header-text">Pokedex</h1>
+        </div>
+        <select name="types" id="types">
+            <option value="all">All</option>
+            <option value="normal">Normal</option>
+            <option value="fire">Fire</option>
+            <option value="water">Water</option>
+            <option value="grass">Grass</option>
+            <option value="electric">Electric</option>
+            <option value="ice">Ice</option>
+            <option value="fighting">Fighting</option>
+            <option value="poison">Poison</option>
+            <option value="ground">Ground</option>
+            <option value="flying">Flying</option>
+            <option value="psychic">Psychic</option>
+            <option value="bug">Bug</option>
+            <option value="rock">Rock</option>
+            <option value="ghost">Ghost</option>
+            <option value="dark">Dark</option>
+            <option value="dragon">Dragon</option>
+            <option value="steel">Steel</option>
+            <option value="fairy">Fairy</option>
+        </select><br />
+        <button id="filterType">Filter</button>
+    </div>
+    <div id="container">
+        <div id="poke-container" class="ui cards">
+                <!-- will hold the cards for all the pokemon -->
+                <button id="generate-pokemon" class="ui secondary button">Generate Pokemon</button>
+        </div>
+    </div>
+    <div id="delete-container">
+        <button id="delete-btn" class="ui red button">Delete</button>
+    </div>
+</body>
+</html>

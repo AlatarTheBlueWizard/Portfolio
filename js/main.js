@@ -43,7 +43,7 @@ function generateTOC() {
         },
         {
             label: "Block 2 Challenge: Pokedex",
-            url: "ChallengeBlockTwo/index.html"
+            url: "CB2 Second Idea/index.html"
         }
     ]
 
