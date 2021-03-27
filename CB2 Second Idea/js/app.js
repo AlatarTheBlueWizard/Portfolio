@@ -48,7 +48,7 @@ function renderPokemon(pokeData) {
     createPokeImage(pokeData.id, pokeContainer);
 
     let pokeName = document.createElement('h4')
-    pokeName.innerText = pokeData.name
+    pokeName.innerText = `${pokeData.name}`;
 
     let pokeNumber = document.createElement('p')
     pokeNumber.innerText = `#${pokeData.id}`
@@ -56,19 +56,19 @@ function renderPokemon(pokeData) {
     let baseExperience = document.createElement('h5')
     baseExperience.innerText = `Base Experience: ${pokeData.base_experience}`;
 
+    let statExperience = document.createElement('h5')
+    statExperience.innerText = `Stats:`;
+
     let typeTitle = document.createElement('h5');
     typeTitle.innerText = 'Type(s):';
 
-    let moveTitle = document.createElement('h5');
-    moveTitle.innerText = 'Moves:';
-
     let pokeTypes = document.createElement('ul') //ul list will hold the pokemon types
-    let pokeMoves = document.createElement('ul');
+    let pokeStats = document.createElement('ul');
 
     createTypes(pokeData.types, pokeTypes); // helper function to go through the types array and create li tags for each one
-    createMoves(pokeData.moves, pokeMoves);
+    createStatistics(pokeData.stats, pokeStats);
 
-    pokeContainer.append(pokeName, pokeNumber, baseExperience, typeTitle, pokeTypes, moveTitle, pokeMoves);   //appending all details to the pokeContainer div
+    pokeContainer.append(pokeName, pokeNumber, baseExperience, statExperience, pokeStats, typeTitle, pokeTypes);   //appending all details to the pokeContainer div
     allPokemonContainer.appendChild(pokeContainer);       //appending that pokeContainer div to the main div which will                                                             hold all the pokemon cards
 }
 
@@ -77,14 +77,6 @@ function createTypes(types, ul) {
         let typeLi = document.createElement('li');
         typeLi.innerText = type['type']['name'];
         ul.append(typeLi)
-    })
-}
-
-function createMoves(moves, ul) {
-    moves.forEach(function (move) {
-        let moveLi = document.createElement('li');
-        moveLi.innerText = move['move']['name'];
-        ul.append(moveLi);
     })
 }
 
@@ -97,6 +89,14 @@ function createPokeImage(pokeID, containerDiv) {
 
     pokeImgContainer.append(pokeImage);
     containerDiv.append(pokeImgContainer);
+}
+
+function createStatistics(stats, ul) {
+    stats.forEach(function (stat) {
+        let statLi = document.createElement('li');
+        statLi.innerText = stat['stat']['name'] + ': ' + stat['base_stat'];
+        ul.append(statLi);
+    })
 }
 
 function deleteEverything(event) {
