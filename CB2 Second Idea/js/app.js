@@ -43,12 +43,26 @@ function fetchPokemonData(pokemon) {
 function renderPokemon(pokeData) {
     let allPokemonContainer = document.getElementById('poke-container');
     let pokeContainer = document.createElement("div") //div will be used to hold the data/details for indiviual pokemon.{}
-    pokeContainer.classList.add('ui', 'card');
+    let singlePoke = document.createElement("div");
+
+    singlePoke.setAttribute("id", "hovePoke");
+    pokeContainer.classList.add('card');
+    let classes = document.querySelectorAll('.card'), i;
+
+    /*for (let i = 0; i < classes.length; i++) {
+        classes[i].classList.add('card-' + i);
+    }*/
 
     createPokeImage(pokeData.id, pokeContainer);
 
     let pokeName = document.createElement('h4')
     pokeName.innerText = `${pokeData.name}`;
+
+    let statButton = document.createElement('button');
+    statButton.innerText = "View stats";
+
+    let remStat = document.createElement('button');
+    remStat.innerText = "Close stats";
 
     let pokeNumber = document.createElement('p')
     pokeNumber.innerText = `#${pokeData.id}`
@@ -68,8 +82,19 @@ function renderPokemon(pokeData) {
     createTypes(pokeData.types, pokeTypes); // helper function to go through the types array and create li tags for each one
     createStatistics(pokeData.stats, pokeStats);
 
-    pokeContainer.append(pokeName, pokeNumber, baseExperience, statExperience, pokeStats, typeTitle, pokeTypes);   //appending all details to the pokeContainer div
-    allPokemonContainer.appendChild(pokeContainer);       //appending that pokeContainer div to the main div which will                                                             hold all the pokemon cards
+    pokeContainer.append(pokeName, pokeNumber, statButton, remStat);   //appending all details to the pokeContainer div
+    singlePoke.append(baseExperience, statExperience, pokeStats, typeTitle, pokeTypes);
+    allPokemonContainer.appendChild(pokeContainer);  //appending that pokeContainer div to the main div which will hold all the pokemon cards
+    //pokeContainer.appendChild(singlePoke);
+
+    statButton.addEventListener("click", function () {
+        pokeContainer.appendChild(singlePoke);
+        singlePoke.style.display = "block";
+    })
+
+    remStat.addEventListener("click", function () {
+        singlePoke.style.display = "none";
+    })
 }
 
 function createTypes(types, ul) {
