@@ -44,14 +44,25 @@ function renderPokemon(pokeData) {
     let allPokemonContainer = document.getElementById('poke-container');
     let pokeContainer = document.createElement("div") //div will be used to hold the data/details for indiviual pokemon.{}
     let singlePoke = document.createElement("div");
-
-    singlePoke.setAttribute("id", "hovePoke");
-    pokeContainer.classList.add('card');
+    let statButtons = document.querySelectorAll('.sButton');
+    let remButtons = document.querySelectorAll('.rButton');
     let classes = document.querySelectorAll('.card'), i;
 
-    /*for (let i = 0; i < classes.length; i++) {
+    singlePoke.setAttribute("id", "hovePoke");
+
+    pokeContainer.classList.add('card');
+
+    for (let i = 0; i < classes.length; i++) {
         classes[i].classList.add('card-' + i);
-    }*/
+    }
+
+    for (let i = 0; i < statButtons.length; i++) {
+        statButtons[i].classList.add('sButton-' + i);
+    }
+
+    for (let i = 0; i < remButtons.length; i++) {
+        remButtons[i].classList.add('rButton-' + i);
+    }
 
     createPokeImage(pokeData.id, pokeContainer);
 
@@ -60,9 +71,11 @@ function renderPokemon(pokeData) {
 
     let statButton = document.createElement('button');
     statButton.innerText = "View stats";
+    statButton.setAttribute("class", "sButton");
 
     let remStat = document.createElement('button');
     remStat.innerText = "Close stats";
+    remStat.setAttribute("class", "rButton");
 
     let pokeNumber = document.createElement('p')
     pokeNumber.innerText = `#${pokeData.id}`
@@ -85,9 +98,8 @@ function renderPokemon(pokeData) {
     pokeContainer.append(pokeName, pokeNumber, statButton, remStat);   //appending all details to the pokeContainer div
     singlePoke.append(baseExperience, statExperience, pokeStats, typeTitle, pokeTypes);
     allPokemonContainer.appendChild(pokeContainer);  //appending that pokeContainer div to the main div which will hold all the pokemon cards
-    //pokeContainer.appendChild(singlePoke);
 
-    statButton.addEventListener("click", function () {
+    statButton.addEventListener("click", function() {
         pokeContainer.appendChild(singlePoke);
         singlePoke.style.display = "block";
     })
