@@ -18,7 +18,6 @@ function getDeleteBtn() {
     return document.querySelector('#delete-btn')
 }
 
-
 function fetchPokemon() {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
         .then(response => response.json())
@@ -38,7 +37,6 @@ function fetchPokemonData(pokemon) {
             renderPokemon(pokeData)
         })
 }
-
 
 function renderPokemon(pokeData) {
     let allPokemonContainer = document.getElementById('poke-container');
